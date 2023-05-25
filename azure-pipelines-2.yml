@@ -10,7 +10,7 @@ jobs:
       - task: AzureCLI@2
         displayName: Remove Custom Owner Roles
         inputs:
-          azureSubscription: a2b3f557-85a6-4ffc-aff7-676ca947f357
+          azureSubscription: 'a2b3f557-85a6-4ffc-aff7-676ca947f357'
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
           inlineScript: |
@@ -19,7 +19,7 @@ jobs:
       - task: AzureCLI@2
         displayName: Assign Admin Role for Locking Resources
         inputs:
-          azureSubscription: a2b3f557-85a6-4ffc-aff7-676ca947f357
+          azureSubscription: 'a2b3f557-85a6-4ffc-aff7-676ca947f357'
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
           inlineScript: |

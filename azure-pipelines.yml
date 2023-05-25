@@ -10,20 +10,10 @@ jobs:
       - task: AzureCLI@2
         displayName: Azure CLI - Remove Custom Owner Roles
         inputs:
-          azureSubscription: 'Azure for Students'
+          azureSubscription: 'a2b3f557-85a6-4ffc-aff7-676ca947f357'
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
           inlineScript: |
             # Remove custom owner roles logic here
 
-  - job: AssignAdminRoleForResourceLocking
-    displayName: Assign Admin Role for Resource Locking
-    steps:
-      - task: AzureCLI@2
-        displayName: Azure CLI - Assign Admin Role
-        inputs:
-          azureSubscription: '<Azure subscription>'
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: |
-            # Assign admin role for resource locking logic here
+

@@ -1,19 +1,29 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+  branches:
+    include:
+      - main
 
-pool:
-  vmImage: ubuntu-latest
+jobs:
+  - job: RemoveCustomOwnerRoles
+    displayName: Remove Custom Owner Roles
+    steps:
+      - task: AzureCLI@2
+        displayName: Azure CLI - Remove Custom Owner Roles
+        inputs:
+          azureSubscription: 'Azure for Students'
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            # Remove custom owner roles logic here
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+  - job: AssignAdminRoleForResourceLocking
+    displayName: Assign Admin Role for Resource Locking
+    steps:
+      - task: AzureCLI@2
+        displayName: Azure CLI - Assign Admin Role
+        inputs:
+          azureSubscription: '<Azure subscription>'
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            # Assign admin role for resource locking logic here

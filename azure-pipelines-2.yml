@@ -1,0 +1,27 @@
+trigger:
+  branches:
+    include:
+      - main
+
+jobs:
+  - job: SecurityBestPractices
+    displayName: Azure Control Security Best Practices
+    steps:
+      - task: AzureCLI@2
+        displayName: Remove Custom Owner Roles
+        inputs:
+          azureSubscription: a2b3f557-85a6-4ffc-aff7-676ca947f357
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            # Run commands to remove custom owner roles
+
+      - task: AzureCLI@2
+        displayName: Assign Admin Role for Locking Resources
+        inputs:
+          azureSubscription: a2b3f557-85a6-4ffc-aff7-676ca947f357
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: |
+            # Run commands to assign admin role for resource locking
+

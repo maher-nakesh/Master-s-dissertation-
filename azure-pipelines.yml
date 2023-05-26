@@ -6,6 +6,9 @@ trigger:
 jobs:
   - job: RemoveCustomOwnerRoles
     displayName: Remove Custom Owner Roles
+    pool:
+      vmImage: 'self-hosted' # Use your local machine as the pool
+
     steps:
       - task: AzureCLI@2
         displayName: Azure CLI - Remove Custom Owner Roles
@@ -13,6 +16,3 @@ jobs:
           azureSubscription: 'Azure for Students(a2b3f557-85a6-4ffc-aff7-676ca947f357)'
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
-          inlineScript: '# Remove custom owner roles logic here'
-
-

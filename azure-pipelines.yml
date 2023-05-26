@@ -10,10 +10,9 @@ jobs:
       - task: AzureCLI@2
         displayName: Azure CLI - Remove Custom Owner Roles
         inputs:
-          azureSubscription: 'Azure for Students'
+          azureSubscription: 'Azure for Students(a2b3f557-85a6-4ffc-aff7-676ca947f357)'
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
-          inlineScript: |
-            # Remove custom owner roles logic here
+          inlineScript: '# Remove custom owner roles logic here'
 
 
